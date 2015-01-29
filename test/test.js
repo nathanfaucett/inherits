@@ -10,6 +10,10 @@ describe("inherits(childConstructor, parentConstructor)", function() {
             this.sex = sex;
         }
 
+        Person.staticFunction = function() {
+            return "Person";
+        };
+
         Person.prototype.print = function() {
             return this.name + " " + this.sex;
         };
@@ -27,5 +31,6 @@ describe("inherits(childConstructor, parentConstructor)", function() {
         });
 
         assert.equal(male.print(), "Bob male");
+        assert.equal(Male.staticFunction(), "Person");
     });
 });
