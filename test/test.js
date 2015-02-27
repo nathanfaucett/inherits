@@ -4,6 +4,7 @@ var assert = require("assert"),
 
 describe("inherits(childConstructor, parentConstructor)", function() {
     it("should make childConstructor inherits parentConstructor", function() {
+        var male;
 
         function Person(name, sex) {
             this.name = name;

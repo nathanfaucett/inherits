@@ -21,6 +21,7 @@
     "mocha": "^2.1.0"
   },
   "dependencies": {
+    "define_property": "nathanfaucett/define_property",
     "create": "nathanfaucett/create",
     "mixin": "nathanfaucett/mixin",
     "extend": "nathanfaucett/extend"
