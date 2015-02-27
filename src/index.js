@@ -23,5 +23,7 @@ module.exports = function inherits(child, parent) {
     defineConstructorProperty(child, "__super", parent.prototype);
     defineConstructorProperty(child.prototype, "constructor", child);
 
+    child.super_ = parent; // support node
+
     return child;
 };
