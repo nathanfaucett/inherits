@@ -12,27 +12,32 @@ var descriptor = {
 };
 
 
-function defineConstructorProperty(object, name, value) {
+function defineNonEnumerableProperty(object, name, value) {
     descriptor.value = value;
     defineProperty(object, name, descriptor);
     descriptor.value = null;
 }
 
 function defineStatic(name, value) {
-    defineConstructorProperty(this, name, value);
+    defineNonEnumerableProperty(this, name, value);
 }
 
-module.exports = function inherits(child, parent) {
+function inherits(child, parent) {
 
     mixin(child, parent);
 
     child.prototype = extend(create(parent.prototype), child.prototype);
 
-    defineConstructorProperty(child, "__super", parent.prototype);
-    defineConstructorProperty(child.prototype, "constructor", child);
+    defineNonEnumerableProperty(child, "__super", parent.prototype);
+    defineNonEnumerableProperty(child.prototype, "constructor", child);
 
     child.defineStatic = defineStatic;
     child.super_ = parent; // support node
 
     return child;
-};
+}
+
+inherits.defineProperty = defineNonEnumerableProperty;
+
+
+module.exports = inherits;
