@@ -4,15 +4,23 @@ var create = require("create"),
     defineProperty = require("define_property");
 
 
+var descriptor = {
+    configurable: true,
+    enumerable: false,
+    writable: true,
+    value: null
+};
+
+
 function defineConstructorProperty(object, name, value) {
-    defineProperty(object, name, {
-        configurable: true,
-        enumerable: false,
-        writable: true,
-        value: value
-    });
+    descriptor.value = value;
+    defineProperty(object, name, descriptor);
+    descriptor.value = null;
 }
 
+function defineStatic(name, value) {
+    defineConstructorProperty(this, name, value);
+}
 
 module.exports = function inherits(child, parent) {
 
@@ -23,6 +31,7 @@ module.exports = function inherits(child, parent) {
     defineConstructorProperty(child, "__super", parent.prototype);
     defineConstructorProperty(child.prototype, "constructor", child);
 
+    child.defineStatic = defineStatic;
     child.super_ = parent; // support node
 
     return child;
