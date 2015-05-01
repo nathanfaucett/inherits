@@ -12,15 +12,8 @@ var descriptor = {
 };
 
 
-function defineNonEnumerableProperty(object, name, value) {
-    descriptor.value = value;
-    defineProperty(object, name, descriptor);
-    descriptor.value = null;
-}
+module.exports = inherits;
 
-function defineStatic(name, value) {
-    defineNonEnumerableProperty(this, name, value);
-}
 
 function inherits(child, parent) {
 
@@ -36,8 +29,14 @@ function inherits(child, parent) {
 
     return child;
 }
-
 inherits.defineProperty = defineNonEnumerableProperty;
 
+function defineNonEnumerableProperty(object, name, value) {
+    descriptor.value = value;
+    defineProperty(object, name, descriptor);
+    descriptor.value = null;
+}
 
-module.exports = inherits;
+function defineStatic(name, value) {
+    defineNonEnumerableProperty(this, name, value);
+}
