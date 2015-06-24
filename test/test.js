@@ -32,6 +32,34 @@ describe("inherits(childConstructor, parentConstructor)", function() {
         });
 
         assert.equal(male.print(), "Bob male");
+        assert.equal(male instanceof Person, true);
         assert.equal(Male.staticFunction(), "Person");
+    });
+
+    it("should make childConstructor inherits parentConstructor", function() {
+        function Animal(type) {
+            this.type = type;
+        }
+        Animal.prototype.getType = function() {
+            return this.type;
+        };
+
+        function Blind() {
+            this.isBlind = true;
+        }
+        Blind.prototype.getSight = function() {
+            return "none";
+        };
+
+
+        function Bat() {
+            Animal.call(this, "Bat");
+            Blind.call(this);
+        }
+        inherits(Bat, Animal);
+        inherits(Bat, Blind);
+
+        assert.equal(new Bat().getSight, Blind.prototype.getSight);
+        assert.equal(new Bat().getType, Animal.prototype.getType);
     });
 });

@@ -18,8 +18,7 @@ module.exports = inherits;
 function inherits(child, parent) {
 
     mixin(child, parent);
-
-    child.prototype = extend(create(parent.prototype), child.prototype);
+    child.prototype = extend(create(parent.prototype), parent.prototype, child.prototype);
 
     defineNonEnumerableProperty(child, "__super", parent.prototype);
     defineNonEnumerableProperty(child.prototype, "constructor", child);
