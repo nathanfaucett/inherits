@@ -56,10 +56,12 @@ describe("inherits(childConstructor, parentConstructor)", function() {
             Animal.call(this, "Bat");
             Blind.call(this);
         }
-        inherits(Bat, Animal);
         inherits(Bat, Blind);
+        inherits(Bat, Animal);
 
         assert.equal(new Bat().getSight, Blind.prototype.getSight);
         assert.equal(new Bat().getType, Animal.prototype.getType);
+
+        assert.equal(new Bat() instanceof Animal, true);
     });
 });
