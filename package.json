@@ -11,6 +11,9 @@
     "inherits",
     "inherits.js"
   ],
+  "scripts": {
+    "test": "mocha"
+  },
   "author": "Nathan Faucett",
   "license": "BSD-2-Clause",
   "readmeFilename": "README.md",

@@ -36,7 +36,7 @@ describe("inherits(childConstructor, parentConstructor)", function() {
         assert.equal(Male.staticFunction(), "Person");
     });
 
-    it("should make childConstructor inherits parentConstructor", function() {
+    it("should make childConstructor inherits from parentConstructor and mixin previous parentConstructors", function() {
         function Animal(type) {
             this.type = type;
         }
