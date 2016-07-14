@@ -1,7 +1,7 @@
-var create = require("create"),
-    extend = require("extend"),
-    mixin = require("mixin"),
-    defineProperty = require("define_property");
+var create = require("@nathanfaucett/create"),
+    extend = require("@nathanfaucett/extend"),
+    mixin = require("@nathanfaucett/mixin"),
+    defineProperty = require("@nathanfaucett/define_property");
 
 
 var descriptor = {

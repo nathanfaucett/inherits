@@ -1,7 +1,7 @@
 {
-  "name": "inherits",
+  "name": "@nathanfaucett/inherits",
   "version": "0.0.1",
-  "description": "inherits for the browser and node.js",
+  "description": "inherits helper function",
   "repository": {
     "type": "git",
     "url": "https://github.com/nathanfaucett/inherits.git"
@@ -12,21 +12,26 @@
     "inherits.js"
   ],
   "scripts": {
-    "test": "mocha"
+    "test": "npm run test-node",
+    "test-node": "node ./test | ./node_modules/.bin/tap-spec",
+    "test-node-raw": "node ./test",
+    "test-browser-local": "zuul --local 9999 --ui tape -- ./test"
   },
   "author": "Nathan Faucett",
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-jsbeautifier": "^0.2.7",
-    "mocha": "^2.1.0"
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-jsbeautifier": "^0.2.13",
+    "tap-spec": "^4.1.0",
+    "tape": "^4.2.2",
+    "zuul": "^3.7.2"
   },
   "dependencies": {
-    "define_property": "git://github.com/nathanfaucett/define_property.git",
-    "create": "git://github.com/nathanfaucett/create.git",
-    "mixin": "git://github.com/nathanfaucett/mixin.git",
-    "extend": "git://github.com/nathanfaucett/extend.git"
+    "@nathanfaucett/define_property": "^0.0.1",
+    "@nathanfaucett/create": "^0.0.1",
+    "@nathanfaucett/mixin": "^0.0.1",
+    "@nathanfaucett/extend": "^0.0.1"
   }
 }
