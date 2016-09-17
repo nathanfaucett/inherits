@@ -1,6 +1,6 @@
 {
   "name": "@nathanfaucett/inherits",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "inherits helper function",
   "repository": {
     "type": "git",
@@ -32,6 +32,6 @@
     "@nathanfaucett/define_property": "^0.0.1",
     "@nathanfaucett/create": "^0.0.1",
     "@nathanfaucett/mixin": "^0.0.1",
-    "@nathanfaucett/extend": "^0.0.1"
+    "@nathanfaucett/extend": "^0.0.2"
   }
 }
